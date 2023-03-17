@@ -24,6 +24,11 @@ namespace Abby.Pages.Categories
 
         public async Task<IActionResult> OnPost(/*Category category*/)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             await _db.Categories.AddAsync(Category);
             await _db.SaveChangesAsync();
 
