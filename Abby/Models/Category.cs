@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Abby.Models
 {
@@ -10,6 +11,7 @@ namespace Abby.Models
         [Required]
         public string Name { get; set; }
 
+        [Display(Name="Display Order")]
         public int DisplayOrder { get; set; }
 
         public DateTime CreatedDateTime { get; set; } = DateTime.Today;
