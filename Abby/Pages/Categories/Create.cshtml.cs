@@ -27,9 +27,11 @@ namespace Abby.Pages.Categories
             if (Category.Name == Category.DisplayOrder.ToString())
             {
                 ModelState.AddModelError("Category.Name", "The Category Name and Display Order cannot be the same.");
+                TempData["error"] = "An error has occurred!";
             }
             if (!ModelState.IsValid)
             {
+                TempData["error"] = "An error has occurred!";
                 return Page();
             }
 

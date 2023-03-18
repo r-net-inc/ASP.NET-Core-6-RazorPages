@@ -40,6 +40,7 @@ namespace Abby.Pages.Categories
                 return RedirectToPage("Index");
             }
 
+            TempData["error"] = "An error has occurred!";
             return Page();
         }
     }
