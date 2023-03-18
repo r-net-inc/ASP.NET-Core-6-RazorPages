@@ -28,7 +28,7 @@ namespace Abby.Pages.Categories
 
         }
 
-        public async Task<IActionResult> OnPost(/*Category category*/)
+        public async Task<IActionResult> OnPost()
         {
             if (Category.Name == Category.DisplayOrder.ToString())
             {
@@ -41,6 +41,8 @@ namespace Abby.Pages.Categories
 
             _db.Categories.Update(Category);
             await _db.SaveChangesAsync();
+
+            TempData["success"] = "Category updated successfully!";
 
             return RedirectToPage("Index");
         }

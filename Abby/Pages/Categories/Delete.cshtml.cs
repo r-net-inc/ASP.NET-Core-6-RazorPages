@@ -28,12 +28,19 @@ namespace Abby.Pages.Categories
 
         }
 
-        public async Task<IActionResult> OnPost(/*Category category*/)
+        public async Task<IActionResult> OnPost()
         {
-            _db.Categories.Remove(Category);
-            await _db.SaveChangesAsync();
+            if (Category != null)
+            {
+                _db.Categories.Remove(Category);
+                await _db.SaveChangesAsync();
 
-            return RedirectToPage("Index");
+                TempData["success"] = "Category deleted successfully!";
+
+                return RedirectToPage("Index");
+            }
+
+            return Page();
         }
     }
 }
